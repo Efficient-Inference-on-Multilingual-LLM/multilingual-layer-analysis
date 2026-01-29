@@ -1,0 +1,23 @@
+# config/extraction.yaml
+model:
+  name: "google/gemma-3-4b-it"
+  max_len: 4097
+  gpu_utilization: 0.8
+
+paths:
+  cache_dir: "/mnt/disks/vm2/.cache"
+  data_dir: "data"
+  output_dir: "output_lape_non_jaccard/mlp-out_k-1"
+
+processing:
+  data_block_size: 1024
+  percentile_threshold: 0.95
+  selection_mode: "entropy" 
+  component_type: "mlp_out"
+  top_rate: 0.01
+  filter_rate: 0.95
+  languages_file: "config/languages/languages.yaml"
+
+# This matches the "multirun" pattern in your inspiration code
+defaults:
+  - _self_
